@@ -20,13 +20,16 @@ const Login = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const response = await fetch('http://localhost:3035/api/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        'https://degeniusfx-backend.onrender.com/api/auth',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
       if (data.success === false) {
         dispatch(loginFailure(data));

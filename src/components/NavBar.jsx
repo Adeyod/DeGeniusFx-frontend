@@ -18,7 +18,7 @@ const NavBar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:3035/api/auth/logout');
+      await fetch('https://degeniusfx-backend.onrender.com/api/auth/logout');
       dispatch(logoutUser());
       toast.info(
         'Logout successful. Thank you for being our partner. We are expecting you back very soon'
