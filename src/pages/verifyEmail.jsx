@@ -12,7 +12,7 @@ const VerifyEmail = () => {
     //   `http://localhost:3035/api/auth/${param.id}/confirm/${param.token}`
     // );
     const response = await fetch(
-      `https://degeniusfx-backend.onrender.com/api/users/${param.id}/confirm/${param.token}`
+      `https://degeniusfx-backend.onrender.com/api/auth/${param.id}/confirm/${param.token}`
     );
     await response.json();
     setValidEmail(true);
