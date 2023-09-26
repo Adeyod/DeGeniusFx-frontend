@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice';
 import OAuth from '../components/OAuth';
+import FAuth from '../components/FAuth';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -91,18 +92,18 @@ const Login = () => {
                 </Link>
               </div>
 
-              {/* <div className="flex gap-2 font-bold mt-2">
-                <p className="text-justify">Forgot Password ?</p>
+              <div className="flex gap-2 font-bold mt-2">
                 <Link className="text-blue-700 hover:underline" to="/login">
-                  Click Here
+                  Forgot Password ?
                 </Link>
-              </div> */}
+              </div>
             </div>
 
             <button className="w-full mt-2 bg-slate-600 rounded-lg p-2 text-white font-bold h-12">
               {loading === true ? 'LOADING...' : 'LOGIN'}
             </button>
             <OAuth />
+            <FAuth />
           </div>
         </form>
       </div>

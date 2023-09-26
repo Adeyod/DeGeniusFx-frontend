@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
 
   const { currentUser } = useSelector((state) => state.users);
 

@@ -8,6 +8,7 @@ import UserDashboard from './pages/UserDashboard';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
+import VerifyEmail from './pages/verifyEmail';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/users/:id/confirm/:token" element={<VerifyEmail />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/user-dashboard" element={<UserDashboard />} />
         </Route>

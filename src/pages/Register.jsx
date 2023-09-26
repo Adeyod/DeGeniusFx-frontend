@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import OAuth from '../components/OAuth';
+import FAuth from '../components/FAuth';
 
 const Register = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -18,6 +18,8 @@ const Register = () => {
       setLoading(true);
       const response = await fetch(
         'https://degeniusfx-backend.onrender.com/api/auth/register',
+        // 'http://localhost:3035/api/auth/register',
+
         {
           method: 'POST',
           headers: {
@@ -28,13 +30,13 @@ const Register = () => {
       );
       const data = await response.json();
       setLoading(false);
-      if (data.success === false) {
-        toast(data.message);
-        return;
-      }
-
+      // if (data.success === false) {
+      //   toast(data.message);
+      //   return;
+      // }
+      console.log(data);
       toast.success(data.message);
-      navigate('/login');
+      setFormData('');
       return data;
     } catch (error) {
       console.log(error);
@@ -132,6 +134,7 @@ const Register = () => {
               {loading === true ? 'LOADING...' : 'Register'}
             </button>
             <OAuth />
+            <FAuth />
           </div>
         </form>
       </div>
