@@ -22,6 +22,7 @@ const Login = () => {
     dispatch(loginStart());
     try {
       const response = await fetch(
+        // 'http://localhost:3035/api/auth',
         'https://degeniusfx-backend.onrender.com/api/auth',
         {
           method: 'POST',
@@ -93,7 +94,10 @@ const Login = () => {
               </div>
 
               <div className="flex gap-2 font-bold mt-2">
-                <Link className="text-blue-700 hover:underline" to="/login">
+                <Link
+                  className="text-blue-700 hover:underline"
+                  to="/forgot-password"
+                >
                   Forgot Password ?
                 </Link>
               </div>

@@ -9,6 +9,9 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import VerifyEmail from './pages/verifyEmail';
+import ForgotPassword from './pages/ForgotPassword';
+import NotFound from './pages/NotFound';
+import ResetPassword from './pages/ResetPassword';
 
 const App = () => {
   return (
@@ -19,6 +22,10 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="*" element={<NotFound />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/users/:id/confirm/:token" element={<VerifyEmail />} />
         <Route element={<ProtectedRoute />}>

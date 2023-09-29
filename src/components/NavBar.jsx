@@ -23,7 +23,7 @@ const NavBar = () => {
       toast.info(
         'Logout successful. Thank you for being our partner. We are expecting you back very soon'
       );
-      navigate('/register');
+      navigate('/login');
       return;
     } catch (error) {
       console.log(error);
