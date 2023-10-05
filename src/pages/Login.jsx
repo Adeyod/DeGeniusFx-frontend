@@ -106,10 +106,10 @@ const Login = () => {
             <button className="w-full mt-2 bg-slate-600 rounded-lg p-2 text-white font-bold h-12">
               {loading === true ? 'LOADING...' : 'LOGIN'}
             </button>
-            <OAuth />
-            <FAuth />
           </div>
         </form>
+        <OAuth />
+        <FAuth />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
@@ -12,8 +12,43 @@ import VerifyEmail from './pages/verifyEmail';
 import ForgotPassword from './pages/ForgotPassword';
 import NotFound from './pages/NotFound';
 import ResetPassword from './pages/ResetPassword';
+import { loginSuccess } from './redux/userSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loginSuccessApi = () => {
+      fetch('https://degeniusfx-backend.onrender.com/auth/login/success', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error('Authentication failed');
+        })
+        .then((resObject) => {
+          // setUser(resObject.user);
+          dispatch(loginSuccess(resObject));
+          navigate('/user-dashboard');
+          toast.success('google login successful');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    loginSuccessApi();
+  }, []);
+
   return (
     <div>
       <NavBar />
